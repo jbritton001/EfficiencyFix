@@ -2,7 +2,7 @@
 After searching and finding a bunch of stuff that doesn't work. From changing the properties in program shortcuts to registry changes, nothing seems to work. So I had to go another route since many of us are fighting the dreaded Efficiency Mode on various Programs that sap resources rather than freeing them up. 
 
 So I created a PowerShell script that sets:
-1. A text file for known executables (mainly browsers) that, on a schedule (At logon every 5 minutes, indefinitely), will remove the Efficiency flag from them.
+1. A text file for known executables (mainly browsers) that, on a schedule (At logon every 5 minutes, indefinitely), will remove the Efficiency flag from them. *You can go to the file and add/remove names, no need to add the .exe*
 2. Created a PS1 file that will remove the flag from the executables based on those in the txt file (You can actually edit the txt file to add/remove, but you will need to know the exe name)
 3. Creates the XML file for Task Scheduler
 4. Creates the Task Schedule
