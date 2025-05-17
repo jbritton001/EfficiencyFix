@@ -1,5 +1,5 @@
 # EfficiencyFix
-After searching and finding a bunch of stuff that doesn't work. From changing the properties in program shortcuts, to registry changes nothing seem to or seems to work. So I had to go another route since many of us are fighting the dreaded Efficiency Mode on various Programs that sap resources rather than freeing them up. 
+After searching and finding a bunch of stuff that doesn't work. From changing the properties in program shortcuts, to registry changes, nothing seems to work. So I had to go another route since many of us are fighting the dreaded Efficiency Mode on various Programs that sap resources rather than freeing them up. 
 
 So I created a PowerShell script that sets:
 1. A text file for known executables (mainly browsers) that, on a schedule (At logon every 5 minutes, indefinitely), will remove the Efficiency flag from them.
@@ -7,6 +7,8 @@ So I created a PowerShell script that sets:
 3. Creates the XML file for Task Scheduler
 4. Creates the Task Schedule
 5. Starts the task Schedule for EfficencyFix
+
+All of the above creates a file directory under Program Files\EfficencyFix
 
 I have also added logging so that you can see when/if the task runs. 
 
