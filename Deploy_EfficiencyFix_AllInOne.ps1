@@ -1,4 +1,6 @@
-
+Write-Host "Starting Windows Efficiency Fis Script that will add a Task in Task Scheduler"
+Write-Host "This will set up in C:\Program Files\EfficicneyFix"
+Start-Sleep -Seconds 1
 $baseDir = "C:\Program Files\EfficiencyFix"
 if (-not (Test-Path $baseDir)) {
     New-Item -ItemType Directory -Path $baseDir -Force | Out-Null
@@ -9,6 +11,8 @@ $ps1Path = "$baseDir\EfficiencyFix.ps1"
 $xmlPath = "$baseDir\EfficiencyFixTask.xml"
 $listPath = "C:\Program Files\EfficiencyFix\EfficiencyFixList.txt"
 
+Write-Host "Creating text file for known Efficiency Mode executables (you can edit the file later)"
+Start-Sleep -seconds 5
 # Known Efficiency Mode offenders
 $exeList = @"
 chrome
@@ -32,6 +36,9 @@ outlook
 "@
 Set-Content -Path $listPath -Value $exeList -Encoding UTF8
 
+Write-Host "Creating the PowerShell script that performs the task"
+Start-Sleep -Seconds 5
+
 # Write ResetPriority.ps1
 $psScriptContent = @'
 $logFile = "C:\Program Files\EfficiencyFix\EfficiencyFix.log"
@@ -53,7 +60,7 @@ foreach ($proc in $processList) {
             $_.PriorityClass = 'Normal'
             Write-Output "Set: $($_.Name) [$($_.Id)]"
         } catch {
-            Write-Output "FAIL: $($_.Name) [$($_.Id)] — $($_.Exception.Message)"
+            Write-Output "FAIL: $($_.Name) [$($_.Id)] â€” $($_.Exception.Message)"
         }
     }
 }
@@ -62,6 +69,9 @@ Stop-Transcript
 exit 0
 '@
 Set-Content -Path $ps1Path -Value $psScriptContent -Encoding UTF8
+
+Write-Host "Creating the XML settings that perform the task"
+Start-Sleep -Seconds 5
 
 # Write Task XML
 $xmlContent = @"
@@ -127,7 +137,9 @@ $xmlContent = @"
 $utf16 = New-Object System.Text.UnicodeEncoding $False, $True
 [System.IO.File]::WriteAllText($xmlPath, $xmlContent, $utf16)
 
-# Register task and run it immediately
+# Register the task and run it immediately
+Write-Host "Creating the task in Task Scheduler"
 schtasks /Create /TN "EfficiencyFix" /XML "$xmlPath" /F
 Start-Sleep -Seconds 1
+Write-Host "Starting the task"
 schtasks /Run /TN "EfficiencyFix"
