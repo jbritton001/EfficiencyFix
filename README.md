@@ -1,4 +1,7 @@
 # Windows 10/11 EfficiencyFix
+
+This is more of a "Workaround" as I know many others have desktop computers, and that is why I created this fix/workaround, as "Efficiency Mode" is mainly geared towards battery life on mobile devices.  
+
 After searching and finding a bunch of stuff that doesn't work. From changing the properties in program shortcuts to registry changes, nothing seems to work. So I had to go another route since many of us are fighting the dreaded Efficiency Mode on various Programs that sap resources rather than freeing them up. 
 
 So I created a PowerShell script that sets:
