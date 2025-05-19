@@ -17,6 +17,7 @@ Start-Sleep -seconds 5
 $exeList = @"
 chrome
 msedge
+msedgewebview2
 firefox
 discord
 spotify
