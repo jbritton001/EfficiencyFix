@@ -53,7 +53,7 @@ if (-not (Test-Path $listPath)) {
 $rawList = Get-Content $listPath -ErrorAction SilentlyContinue
 $processList = $rawList -join "," -split "," | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" } | Select-Object -Unique
 
-Start-Transcript -Path $logFile -Append
+# Start-Transcript -Path $logFile -Append
 
 foreach ($proc in $processList) {
     Get-Process -Name $proc -ErrorAction SilentlyContinue | ForEach-Object {
@@ -66,7 +66,7 @@ foreach ($proc in $processList) {
     }
 }
 
-Stop-Transcript
+# Stop-Transcript
 exit 0
 '@
 Set-Content -Path $ps1Path -Value $psScriptContent -Encoding UTF8
