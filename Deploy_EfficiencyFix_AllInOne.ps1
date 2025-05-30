@@ -1,4 +1,4 @@
-Write-Host "Starting Windows Efficiency Fis Script that will add a Task in Task Scheduler"
+Write-Host "Starting Windows Efficiency Mode workaround Script that will add a Task in Task Scheduler"
 Write-Host "This will set up in C:\Program Files\EfficicneyFix"
 Start-Sleep -Seconds 1
 $baseDir = "C:\Program Files\EfficiencyFix"
