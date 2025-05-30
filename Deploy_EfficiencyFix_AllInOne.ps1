@@ -19,6 +19,8 @@ chrome
 msedge
 msedgewebview2
 firefox
+opera
+browser_assistant
 discord
 spotify
 steam
@@ -30,8 +32,6 @@ vlc
 excel
 winword
 outlook
-opera
-browser_assistant
 "@
 Set-Content -Path $listPath -Value $exeList -Encoding UTF8
 
