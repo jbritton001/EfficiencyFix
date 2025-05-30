@@ -27,10 +27,6 @@ notepad
 zoom
 ms-teams
 vlc
-powershell
-code
-obs64
-explorer
 excel
 winword
 outlook
